@@ -1,0 +1,12 @@
+Cloning into 'mods/signs_lib'...
+commit ed3a679bcaf23c81bf35edd4f92ec4be56f36378
+Author: fluxionary <25628292+fluxionary@users.noreply.github.com>
+Date:   Sat Dec 10 11:36:58 2022 -0800
+
+    don't emit translation strings to the log (#17)
+    
+    * don't emit translation strings to the log
+    
+    * fix luacheck
+    
+    * don't double-log signs_lib prefix

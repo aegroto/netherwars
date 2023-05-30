@@ -1,0 +1,9 @@
+Cloning into 'mods/basic_materials'...
+Submodule 'sound_api_core' (https://github.com/mt-mods/sound_api_core.git) registered for path 'sound_api_core'
+Cloning into '/home/user/.var/app/net.minetest.Minetest/.minetest/games/skyblock/mods/basic_materials/sound_api_core'...
+Submodule path 'sound_api_core': checked out '6956e49e775f325116f8e0c643899c089c691e1e'
+commit 55fae27d05c4e990a1c4c516587cd87fb1731c51
+Author: unknown <24964441+wsor4035@users.noreply.github.com>
+Date:   Thu Dec 1 19:55:04 2022 -0500
+
+    make nodes digable in mcl* survival mode

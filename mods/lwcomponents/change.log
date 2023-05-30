@@ -1,0 +1,198 @@
+
+v 0.1.0
+*	initial release
+
+
+v0.1.1
+*	Fixed receiving digilines message on "" channel.
+*	Added siren.
+*	Made digilines optional for solid conductor blocks.
+*	Fixed lighting
+*	Added puncher
+
+
+v0.1.2
+*	Added support for hopper as optional dependency for droppers, dispensers
+	and collectors.
+*	Added digilines message to punchers when something is punched.
+
+
+v0.1.3
+*	Added hp and height info from detector.
+*	Added dispensers spawn if spawner with optional dependency on mobs mod.
+	If mobs:egg is dispensed 10% change a chicken is dispensed instead.
+*	Added player_button.
+
+
+v0.1.4
+*	Bug fix to spawning owned mobs.
+
+
+v0.1.5
+*	Added setting Spawn mobs.
+*	Added lwcomponents.register_spawner api.
+
+
+v0.1.6
+*	Added holograms.
+*	Added breakers.
+*	Added fans.
+
+
+v0.1.7
+*	Fixed fan description.
+*	Breakers can break nodes up to 5 forward with digilines message.
+*	Added deployers.
+
+
+v0.1.8
+*	Changed detector digilines message to single message with list of
+	detected items.
+*	Added conduits.
+*	Fixed fans not blowing upward.
+*	Made changes to lwcomponents.register_spawner api - called function
+	must now set velocity, can use force parameter.
+*	Removed spawning from this mod. Created lwcomponents_spawners to
+	register spawners.
+
+
+v0.1.9
+*	Fixed infotext on various nodes.
+
+
+v0.1.10
+*	Added cannons.
+
+
+v0.1.11
+*	Fix to breakers (?).
+*	Added position aiming to cannons.
+
+
+v0.1.12
+*	Added sensitivity option for game controller in cannons.
+*	Added cannon shells.
+*	Fixed bug in utils.is_creative.
+*	Increased cannon pitch to -20 to 70.
+
+
+v0.1.13
+*	Removed optional dependency lwdrops.
+
+
+v0.1.14
+*	Calls on_drop when item is dropped.
+
+
+v0.1.15
+*	Fixed bug call to clear_map in fan on_blast.
+*	Added pistons.
+
+
+v0.1.16
+*	Fixed piston interaction with non-walkable nodes.
+
+
+v0.1.17
+*	Fixed unintended global variable in pistons.lua.
+
+
+v0.1.18
+*	Added mesecons through wire.
+
+
+v0.1.19
+*	Added camera.
+
+
+v0.1.20
+*	Valid distance and resolution for camera set by digilines message.
+*	Imposed maximum resolution of 128 for cameras.
+
+
+v0.1.21
+*	Minor bug fix, movefloor global.
+*	Fixed movefloor so player doesn't fall through floor.
+*	Transfer timer in moved nodes for pistons.
+
+
+v0.1.22
+*	Added storage.
+
+
+v0.1.23
+*	Fixed storage indexer not taking items from storage properly.
+*	Added pipeworks support for:
+		Storage Indexer
+		Dropper
+		Collector
+		Dispenser
+		Breaker
+		Deployer
+		Cannon
+		Conduit
+*	Conduits now work in unloaded blocks.
+*	Fixed conduits sending items in groups.
+*	Fixed player attached to controller moving forever when they get blown up.
+*	Fixed pistons being powered from the pusher side.
+
+
+v0.1.24
+*	Limited requested count from storage indexer from digilines message to max stack.
+*	Fixed receptor state in detector.
+*	Fixed receptor state in digiswitch.
+*	Fixed bug in utils.is_same_item ().
+*	Added force field generators.
+*	Removed immortal from cannon shells (shells test for same type of shell and ignore).
+
+
+v0.1.25
+*	Added hoppers.
+*	Added "inventory" message to conduits.
+*	Removed digilines or mesecons requirement for conduits.
+*	Improved unescaping item description.
+*	Fixed custom item output from storage.
+*	Added filtering to conduit forms.
+
+
+v0.1.26
+*	Added support for stickblocks to pistons.
+*	Changed description of hoppers to avoid confusion.
+*	Added destroyer.
+*	Cleaned up hopper code.
+*	Fixed recipe for solid conductor blocks.
+
+
+v0.1.27
+*	Bug fixes and code cleanup.
+*	Fixed receptor state in detector.
+*	Improved receptor state in digiswitch.
+
+
+v0.1.28
+*	Added support for lwwires. Wires will not connect to conduits.
+
+
+v0.1.29
+*	Fixed piston moving piston blanks.
+
+
+v0.1.30
+*	Added quantity field to droppers.
+*	Added 'Use player when placing' setting.
+
+
+v0.1.31
+*	Added crafter.
+
+
+v0.1.32
+*	Fixed crafter not return replacement items properly.
+
+
+v0.1.33
+*	Added recipe list when crafting by item to UI in crafters.
+*	Added results message for crafters digilines messages "craft" and "craftitem".
+*	Added "can_craft" digilines message to crafters.
+*	Fixed crafter not outputing all items when output has full stack.
+*	Improved crafter crafting.

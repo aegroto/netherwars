@@ -1,0 +1,9 @@
+Cloning into 'mods/legboat'...
+commit df1f7da2ae58deb6fcd2464853ed49973fe1b119
+Author: ekl <>
+Date:   Thu Jan 19 14:18:08 2023 -0800
+
+    Lift, overstep, rotation
+    Leg animation is interpolated over several globalsteps, and lifts a bit
+    The velocity of the boat is used in step calculation
+    Rotation will trigger the legboat to step

@@ -1,0 +1,6 @@
+Cloning into 'mods/player_monoids'...
+commit 08bc018f92b54732ade8c5e1ff38c404706e411e
+Author: Raymoo <uguu@installgentoo.com>
+Date:   Sat Mar 5 23:16:01 2022 -0600
+
+    Don't save player ref after callback

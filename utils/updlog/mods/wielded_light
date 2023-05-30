@@ -1,0 +1,6 @@
+Cloning into 'mods/wielded_light'...
+commit b5236562af9772dff8522fe2bda5b5f738e81b88
+Author: Izzyb1234 <izzyb@bnsnet.ca>
+Date:   Thu Jun 23 11:49:46 2022 -0600
+
+    Bugfixes. Preserve timers and param2 (#20)

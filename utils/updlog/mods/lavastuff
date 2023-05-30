@@ -1,0 +1,8 @@
+Cloning into 'mods/lavastuff'...
+commit aca720dc0fa61e179510c81ac1ec37416f1446a0
+Author: fluxionary <25628292+fluxionary@users.noreply.github.com>
+Date:   Thu Jul 21 21:42:33 2022 -0700
+
+    Change moreblocks stair craft to use blocks instead of ingots (#18)
+    
+    required for compatibility with https://github.com/minetest-mods/moreblocks/pull/191

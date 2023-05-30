@@ -1,0 +1,8 @@
+Cloning into 'mods/aerial'...
+commit f147430416955b54a5502c9719d90a1a90d00457
+Author: EmptyStar <gitmail@emptystar.email>
+Date:   Mon Sep 19 18:55:02 2022 -0400
+
+    Merge pull request #3 from EmptyStar/remove_unnecessary_log
+    
+    Remove unnecessary log messages for jump height

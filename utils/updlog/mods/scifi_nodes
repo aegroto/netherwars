@@ -1,0 +1,6 @@
+Cloning into 'mods/scifi_nodes'...
+commit c5c587d01a5036ded6f07434b4e0f66a49158a27
+Author: BuckarooBanzay <BuckarooBanzay@users.noreply.github.com>
+Date:   Tue Dec 13 20:01:23 2022 +0100
+
+    use `colorwallmounted` with a single letter registration (has 32 colors)

@@ -1,0 +1,9 @@
+Cloning into 'mods/anvil'...
+commit 7858dcf6686e6d3a14bc8794c55ed56e55d73e1e
+Author: Jose Anastacio <76887321+josegamestest@users.noreply.github.com>
+Date:   Thu Dec 15 14:24:01 2022 -0300
+
+    Add portuguese Brazilian language
+    
+    Adds to the mod a language that translates to Portuguese
+    add locale/anvil.pt_BR.tr

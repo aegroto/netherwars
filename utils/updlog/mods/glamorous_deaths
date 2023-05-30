@@ -1,0 +1,9 @@
+Cloning into 'mods/glamorous_deaths'...
+commit 47447568abc90f2ec1b71f4fbcddc1dc3fd0b793
+Author: Brett Cornwall <brett@i--b.com>
+Date:   Sun Sep 25 11:12:41 2022 -0700
+
+    Remove version output on mod load
+    
+    This is pointless output and requires my little brain to remember to
+    update it when there's a new release.

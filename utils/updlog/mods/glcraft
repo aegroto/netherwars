@@ -1,0 +1,7 @@
+Cloning into 'mods/glcraft'...
+warning: redirecting to https://gitlab.com/Kimapr/glcraft.git/
+commit a7ca9fd7e750168f9ee731031a9ef87fb6543045
+Author: Kimapr <kimapr@mail.ru>
+Date:   Mon Feb 20 08:26:30 2023 +0500
+
+    fix crafting shenanigans

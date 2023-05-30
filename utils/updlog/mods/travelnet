@@ -1,0 +1,6 @@
+Cloning into 'mods/travelnet'...
+commit 00ed0a155ba01dba5c5c6ad56e7420878528e90b
+Author: OgelGames <olliverdc28@gmail.com>
+Date:   Sun Jan 15 23:52:32 2023 +1100
+
+    check above node before removing it

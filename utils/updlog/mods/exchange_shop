@@ -1,0 +1,8 @@
+Cloning into 'mods/exchange_shop'...
+commit 5122b5a061714945f412b3bef1e373df096067ae
+Author: SmallJoker <mk939@ymail.com>
+Date:   Fri Mar 25 19:24:52 2022 +0100
+
+    Copy metadata of sold items
+    
+    With this change, the shop will use the metadata of the last removed ItemStack

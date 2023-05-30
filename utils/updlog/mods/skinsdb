@@ -1,0 +1,6 @@
+Cloning into 'mods/skinsdb'...
+commit b49907c4b19535b7df92f72655004fd01821c5a9
+Author: fluxionary <25628292+fluxionary@users.noreply.github.com>
+Date:   Sun Jan 15 05:16:44 2023 -0800
+
+    Add hand_monoid support (#81)

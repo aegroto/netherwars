@@ -1,0 +1,6 @@
+Cloning into 'mods/modlib'...
+commit 72ca08ed3a955f614fb853e37f7e31a5f5ec2999
+Author: Lars Mueller <appgurulars@gmx.de>
+Date:   Sat Nov 5 11:42:01 2022 +0100
+
+    Add basic minetest.mod.require

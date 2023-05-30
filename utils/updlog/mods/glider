@@ -1,0 +1,10 @@
+Cloning into 'mods/glider'...
+commit 887779e5eb9557872957190450b212fdb98593da
+Author: CBugDCoder <36745150+CBugDCoder@users.noreply.github.com>
+Date:   Fri Jul 16 14:34:50 2021 -0700
+
+    Update physics (#3)
+    
+    * Update physics
+    
+    * Add rocket timer

@@ -1,0 +1,6 @@
+Cloning into 'mods/backpacks'...
+commit d626805cb0e8948e02a34ac6a9e78c43770519b6
+Author: mckaygerhard <mckaygerhard@gmail.com>
+Date:   Fri Jan 13 10:21:21 2023 -0400
+
+    fix re-registration of the group craft for any kind of wool

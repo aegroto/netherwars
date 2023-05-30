@@ -1,0 +1,3 @@
+# textdomain:pride_flags
+Flag Pole=
+Flag Pole with Flag=

@@ -1,0 +1,6 @@
+Cloning into 'mods/digtron'...
+commit 972b6919dcef70dcd03effabe5e5e628c8735ca1
+Author: Gabriel Pérez-Cerezo <gabriel@gpcf.eu>
+Date:   Thu Apr 2 21:48:28 2020 +0200
+
+    Fix rotation and controller being single-use

@@ -1,0 +1,17 @@
+Digilines Graphical Screen for Minetest
+=======================================
+
+How to use:
+1. Place one and set the channel
+2. Send an image (see below for the format)
+3. Image will be displayed on the screen
+4. If the screen is clicked, the screen will send a message on its channel containing the X and Y positions of the click and the name of the player.
+
+
+
+Image format:
+(this is the same as rgblightstone in group mode)
+Images consist of tables, containing one table for each row with keys numbered from 1 to 16.
+Within each row are 16 strings, one for each pixel in the row, with keys numbered from 1 to 16.
+Each string contains the color for that pixel as a 6-digit hex color, with optional "#" prefix.
+Invalid or omitted pixels or rows will appear as black, and excess pixels or rows will be discarded.

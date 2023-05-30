@@ -1,0 +1,6 @@
+Cloning into 'mods/digilines'...
+commit fa4f7a949c476b5a12f9f2fb1a469ac6d9b098b2
+Author: nonfreegithub <project@gnuhacker.org>
+Date:   Tue Jan 10 16:26:31 2023 +0100
+
+    Add ES locale and update the template (#77)

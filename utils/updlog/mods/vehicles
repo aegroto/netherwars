@@ -1,0 +1,8 @@
+Cloning into 'mods/vehicles'...
+commit dc4fa708879894a929a9664b4b2b1776454b0cf9
+Author: D00Med <heiselong@gmx.com>
+Date:   Mon Jan 2 08:22:59 2023 +1000
+
+    Merge pull request #67 from MoNTE48/patch-2
+    
+    Fix Bullet and Ute crash

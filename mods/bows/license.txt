@@ -1,0 +1,18 @@
+
+Code by AiTechEye and edited by TenPlus1 (LGPL-2.1-only)
+
+Textures by AiTechEye (CC0)
+  bows_arrow_wood.png
+  bows_bow.png
+  bows_bow_bronze.png
+  bows_bow_loaded.png
+  bows_bow_loaded_bronze.png
+  bows_bow_loaded_steel.png
+  bows_bow_steel.png
+
+Textures by TenPlus1 (CC0)
+  bows_bow_bowie.png
+  bows_bow_loaded_bowie.png
+
+Sound by cmusounddesign (Attribution 3.0 license):
+  bows_shoot.ogg
