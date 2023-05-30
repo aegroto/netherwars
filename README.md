@@ -1,1 +1,1 @@
-Skyblock based on Minetest Game. Build the ultimate factory from nothing but a single tree! Unlike other skyblock mods, it's progression system does not revolve around completing quests and instead is based on crafting (in fact, the only thing i added myself is crafting and cooking recipes). Made to prove a point that minetest skyblocks don't have to have cancerous quest-based progression systems to work.
+Minetest game running the "NetherWars" server, fork of https://content.minetest.net/packages/Kimapr/nonsensical_skyblock/
