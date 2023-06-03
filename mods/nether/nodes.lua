@@ -178,6 +178,8 @@ minetest.register_node("nether:rack", {
 	-- setting workable_with_nether_tools reduces the wear on nether:pick_nether when mining this node
 	groups = {cracky = 3, level = 2, workable_with_nether_tools = 3},
 	sounds = default.node_sound_stone_defaults(),
+	paramtype = "light",
+	light_source = 13,
 })
 
 -- Geode crystals can only be introduced by the biomes-based mapgen, since it requires the
