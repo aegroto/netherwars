@@ -89,7 +89,7 @@ minetest.register_tool("nether:sword_nether", {
 		groupcaps={
 			snappy={times={[1]=1.5, [2]=0.6, [3]=0.2}, uses=45, maxlevel=3},
 		},
-		damage_groups = {fleshy=10},
+		damage_groups = {fleshy=6},
 	},
 	sound = {breaks = "default_tool_breaks"},
 	groups = {sword = 1}
