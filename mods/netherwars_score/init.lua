@@ -1,3 +1,4 @@
+nethewars_score = {}
 storage = minetest.get_mod_storage()
 
 minetest.register_on_joinplayer(
@@ -12,6 +13,18 @@ minetest.register_on_joinplayer(
         minetest.chat_send_all(string.format("%s score: %d", player:get_player_name(), storage:get(score_key)))
     end
 )
+
+function nethewars_score:add_score(player_name, value)
+    local score_key = string.format("%s:score", player_name)
+    local new_score = storage:get_int(score_key) + value
+    storage:set_int(score_key, new_score)
+    return new_score
+end
+
+function nethewars_score:get_score(player_name)
+    local score_key = string.format("%s:score", player_name)
+    return storage:get_int(score_key)
+end
 
 scores = {}
 scores["livingnether:cyst"] = 45
@@ -40,10 +53,7 @@ for key, score in pairs(scores) do
             end
 
             local player_name = killer:get_player_name()
-            local score_key = string.format("%s:score", player_name)
-
-            local new_score = storage:get_int(score_key) + score
-            storage:set_int(score_key, new_score)
+            local new_score = nethewars_score:add_score(player_name, score)
 
             minetest.chat_send_player(player_name, 
                 string.format("You have killed %s! Current score: %d", key, new_score))
@@ -56,3 +66,4 @@ local path = minetest.get_modpath(minetest.get_current_modname()) .. "/"
 dofile(path .. "scoreboard.lua")
 dofile(path .. "utils.lua")
 dofile(path .. "commands.lua")
+dofile(path .. "pvp.lua")

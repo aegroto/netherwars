@@ -1,6 +1,6 @@
 scoreboard = {}
 
-UPDATE_INTERVAL = 10
+UPDATE_INTERVAL = 1
 
 function sort_score_entries(l, r)
     return l["score"] > r["score"]
