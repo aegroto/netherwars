@@ -26,14 +26,14 @@ scores["livingnether:whip"] = 45
 
 for key, score in pairs(scores) do
     minetest.log("action", string.format("Registering score for %s (%d)", key, score))
-    entity_def = minetest.registered_entities[key]
+    local entity_def = minetest.registered_entities[key]
     if not (entity_def.on_die == nil) then
         minetest.log("warning", string.format(
             "Unable to register score for %s as on_death callback is not null", 
             key))
     else
         entity_def.on_die = function(self)
-            killer = self.cause_of_death["puncher"]
+            local killer = self.cause_of_death["puncher"]
 
             if killer == nil then
                 return
@@ -51,18 +51,8 @@ for key, score in pairs(scores) do
     end
 end
 
-minetest.register_tool("netherwars_score:god_sword", {
-	description = "God Sword",
-	inventory_image = "god_sword.png",
-	tool_capabilities = {
-		full_punch_interval = 0.7,
-		max_drop_level=1,
-		groupcaps={
-			snappy={times={[1]=1.5, [2]=0.6, [3]=0.2}, uses=45, maxlevel=3},
-		},
-		damage_groups = {fleshy=1000},
-	},
-	sound = {breaks = "default_tool_breaks"},
-	groups = {sword = 1}
-})
+local path = minetest.get_modpath(minetest.get_current_modname()) .. "/"
 
+dofile(path .. "scoreboard.lua")
+dofile(path .. "utils.lua")
+dofile(path .. "commands.lua")
