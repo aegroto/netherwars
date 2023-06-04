@@ -419,6 +419,13 @@ armor.set_player_armor = function(self, player)
 					levels["radiation"] = def.groups["armor_radiation"]
 				end
 			end
+
+			local meta = stack:get_meta()
+			local progressive_armor_level = meta:get_int("progressive_armor_level")
+			if not (progressive_armor_level == nil) then
+				levels["fleshy"] = levels["fleshy"] + progressive_armor_level
+			end
+
 			local item = stack:get_name()
 			local tex = def.texture or item:gsub("%:", "_")
 			tex = tex:gsub(".png$", "")
