@@ -557,6 +557,9 @@ armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabili
 	local list = armor_inv:get_list("armor")
 	for i, stack in pairs(list) do
 		if stack:get_count() == 1 then
+			local meta = stack:get_meta()
+			local progressive_damage = meta:get_int("progressive_damage_level") or 0
+
 			local itemname = stack:get_name()
 			local use = minetest.get_item_group(itemname, "armor_use") or 0
 			local damage = use > 0
@@ -568,6 +571,7 @@ armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabili
 			if damage == true and tool_capabilities then
 				local damage_groups = def.damage_groups or default_groups
 				local level = damage_groups.level or 0
+				level = level + progressive_damage
 				local groupcaps = tool_capabilities.groupcaps or {}
 				local uses = 0
 				damage = false

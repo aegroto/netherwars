@@ -2835,6 +2835,10 @@ function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
 	local armor = self.object:get_armor_groups() or {}
 	local tmp
 
+	-- add progressive damage
+	local progressive_damage = weapon:get_meta():get_int("progressive_damage_level") or 0
+	damage = damage + progressive_damage
+
 	-- quick error check incase it ends up 0 (serialize.h check test)
 	if tflp == 0 then
 		tflp = 0.2
@@ -2843,17 +2847,13 @@ function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
 	if use_cmi then
 		damage = cmi.calculate_damage(self.object, hitter, tflp, tool_capabilities, dir)
 	else
-
 		for group,_ in pairs( (tool_capabilities.damage_groups or {}) ) do
-
 			tmp = tflp / (tool_capabilities.full_punch_interval or 1.4)
-
 			if tmp < 0 then
 				tmp = 0.0
 			elseif tmp > 1 then
 				tmp = 1.0
 			end
-
 			damage = damage + (tool_capabilities.damage_groups[group] or 0)
 					* tmp * ((armor[group] or 0) / 100.0)
 		end
