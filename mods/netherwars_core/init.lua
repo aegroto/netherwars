@@ -16,10 +16,17 @@ technic.register_alloy_recipe({
 	time = 100
 })
 
-function add_drop()
-	local entity_def = minetest.registered_entities["livingnether:razorback"]
-	local new_drop = { name = "netherwars_core:nether_matter", chance = 1, min = 1, max = 1}
+local function add_drop(entity_name, new_drop)
+	local entity_def = minetest.registered_entities[entity_name]
 	table.insert(entity_def.drops, new_drop)
 end
 
-add_drop()
+add_drop("livingnether:razorback", { name = "netherwars_core:nether_matter", chance = 3, min = 1, max = 2 })
+add_drop("livingnether:lavawalker", { name = "netherwars_core:nether_matter", chance = 2, min = 1, max = 2 })
+add_drop("livingnether:cyst", { name = "netherwars_core:nether_matter", chance = 8, min = 1, max = 2 })
+add_drop("livingnether:flyingrod", { name = "netherwars_core:nether_matter", chance = 5, min = 1, max = 2 })
+add_drop("livingnether:noodlemaster", { name = "netherwars_core:nether_matter", chance = 5, min = 1, max = 2 })
+add_drop("livingnether:sokaarcher", { name = "netherwars_core:nether_matter", chance = 5, min = 1, max = 2 })
+add_drop("livingnether:sokameele", { name = "netherwars_core:nether_matter", chance = 5, min = 1, max = 2 })
+add_drop("livingnether:tardigrade", { name = "netherwars_core:nether_matter", chance = 7, min = 1, max = 2 })
+add_drop("livingnether:whip", { name = "netherwars_core:nether_matter", chance = 8, min = 1, max = 2 })
