@@ -17,7 +17,9 @@ minetest.register_tool("netherwars_weapons:sword_netherwarrior", {
 minetest.register_craft({
 	output = "netherwars_weapons:sword_netherwarrior",
 	recipe = {
-		{"netherwars_weapons:sword_netherwarrior"}
+		{"netherwars_core:netherium_ingot"},
+		{"netherwars_core:netherium_ingot"},
+		{"default:obsidian_shard"}
 	}
 })
 
