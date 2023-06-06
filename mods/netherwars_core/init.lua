@@ -30,3 +30,50 @@ add_drop("livingnether:sokaarcher", { name = "netherwars_core:nether_matter", ch
 add_drop("livingnether:sokameele", { name = "netherwars_core:nether_matter", chance = 5, min = 1, max = 2 })
 add_drop("livingnether:tardigrade", { name = "netherwars_core:nether_matter", chance = 7, min = 1, max = 2 })
 add_drop("livingnether:whip", { name = "netherwars_core:nether_matter", chance = 8, min = 1, max = 2 })
+
+function update_description(itemstack) 
+	local def = itemstack:get_definition()
+	local meta = itemstack:get_meta()
+
+	local description = def.description
+
+	minetest.debug(" --- ")
+
+	if meta:contains("progressive_damage_level") then
+		description = description .. "\nDamage level: " .. meta:get_float("progressive_damage_level")
+	end
+
+	
+	if meta:contains("progressive_armor_level") then
+		description = description .. "\nArmor level: " .. meta:get_float("progressive_armor_level")
+	end
+
+	if meta:contains("progressive_update_factor") then
+		description = description .. "\nUpdate factor: " .. meta:get_float("progressive_update_factor")
+	end
+
+	meta:set_string("description", description)
+end
+
+minetest.register_on_craft(
+	function(itemstack, player, old_craft_grid, craft_inv)
+		local def = itemstack:get_definition()
+		local progressive_updates = def.progressive_updates
+		if progressive_updates == nil then
+			return
+		end
+
+		local meta = itemstack:get_meta()
+
+		if progressive_updates["damage"] ~= nil then
+			meta:set_float("progressive_damage_level", 0.0)
+		end
+
+		if progressive_updates["armor"] ~= nil then
+			meta:set_float("progressive_armor_level", 0.0)
+		end
+
+		meta:set_float("progressive_update_factor", 1.0)
+		update_description(itemstack)
+	end
+)
