@@ -77,3 +77,7 @@ minetest.register_on_craft(
 		update_description(itemstack)
 	end
 )
+
+local path = minetest.get_modpath(minetest.get_current_modname()) .. "/"
+
+dofile(path .. "anvil.lua")
