@@ -40,16 +40,19 @@ function update_description(itemstack)
 	local description = def.description
 
 	if meta:contains("progressive_damage_level") then
-		description = description .. "\nDamage level: " .. meta:get_float("progressive_damage_level")
+		description = description .. 
+			string.format("\nDamage level: %.2f", meta:get_float("progressive_damage_level"))
 	end
 
 	
 	if meta:contains("progressive_armor_level") then
-		description = description .. "\nArmor level: " .. meta:get_float("progressive_armor_level")
+		description = description ..
+			string.format("\nArmor level: %.2f", meta:get_float("progressive_armor_level"))
 	end
 
 	if meta:contains("progressive_update_factor") then
-		description = description .. "\nUpdate factor: " .. meta:get_float("progressive_update_factor")
+		description = description ..
+			string.format("\nUpdate level: %.2f", meta:get_float("progressive_update_level"))
 	end
 
 	meta:set_string("description", description)
