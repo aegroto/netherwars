@@ -143,7 +143,6 @@ minetest.register_node("netherwars_core:nether_anvil", {
 
 		local meta = minetest.get_meta(pos)
 		local name = clicker:get_player_name()
-		local shared = meta:get_int("shared") == 1
 
 		if itemstack:get_count() == 0 then
 			local inv = meta:get_inventory()
@@ -180,27 +179,45 @@ minetest.register_node("netherwars_core:nether_anvil", {
 			return
 		end
 
-		local wielded = puncher:get_wielded_item()
-		local meta = minetest.get_meta(pos)
-		local inv = meta:get_inventory()
-		local owner = meta:get_string("owner")
-		local shared = meta:get_int("shared") == 1
-		local puncher_name = puncher:get_player_name()
-		if not shared and owner ~= puncher_name then
+		local inventory = minetest.get_meta(pos):get_inventory()
+		local item = inventory:get_stack("input", 1)
+
+		if item == nil then
 			return
 		end
 
-		if wielded:get_count() == 0 then
-			if not inv:is_empty("input") then
-				local return_stack = inv:get_stack("input", 1)
-				inv:set_stack("input", 1, nil)
-				local wield_index = puncher:get_wield_index()
-				puncher:get_inventory():set_stack("main", wield_index, return_stack)
-				meta:set_string("infotext", "Nether anvil")
-				remove_item(pos, node)
+		local meta = item:get_meta()
+		local wielded = puncher:get_wielded_item()
+		local player_name = puncher:get_player_name()
+		local leveling_def = netherwars.leveling_items[wielded:get_name()]
+
+		if leveling_def ~= nil then
+			local stats = item:get_definition().progressive_updates
+			if leveling_def["damage"] ~= nil and meta:contains("progressive_damage_level") then
+				local current_damage = meta:get_float("progressive_damage_level")
+				local update_factor = meta:get_float("progressive_update_factor")
+
+				local damage_upgrade = leveling_def["damage"] * update_factor
+				local upgraded_damage = current_damage + damage_upgrade
+
+				meta:set_float("progressive_damage_level", upgraded_damage)
+
+				local new_update_factor = update_factor * (1.0 - stats.upgrade_decay)
+				meta:set_float("progressive_update_factor", new_update_factor)
+
+				update_description(item)
+
+				minetest.chat_send_player(player_name, 
+					string.format("Upgrade was successful! New damage: %.2f (+%.2f)",
+						upgraded_damage, damage_upgrade
+					)
+				)
 			end
+
+			inventory:set_stack("input", 1, item)
 		end
 	end,
+
 	is_ground_content = false,
 })
 

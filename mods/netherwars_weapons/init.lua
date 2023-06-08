@@ -9,7 +9,10 @@ minetest.register_tool("netherwars_weapons:sword_netherwarrior", {
 		},
 		damage_groups = {fleshy=6},
 	},
-	progressive_updates = { damage = 1.0 },
+	progressive_updates = { 
+		damage = 1.0,
+		upgrade_decay = 0.1
+	},
 	sound = {breaks = "default_tool_breaks"},
 	groups = {sword = 1}
 })

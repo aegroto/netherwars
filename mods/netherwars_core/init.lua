@@ -1,3 +1,5 @@
+netherwars = {}
+
 minetest.register_craftitem("netherwars_core:nether_matter", {
 	description = "Nether Matter",
 	inventory_image = "netherwars_nether_matter.png",
@@ -37,8 +39,6 @@ function update_description(itemstack)
 
 	local description = def.description
 
-	minetest.debug(" --- ")
-
 	if meta:contains("progressive_damage_level") then
 		description = description .. "\nDamage level: " .. meta:get_float("progressive_damage_level")
 	end
@@ -66,7 +66,7 @@ minetest.register_on_craft(
 		local meta = itemstack:get_meta()
 
 		if progressive_updates["damage"] ~= nil then
-			meta:set_float("progressive_damage_level", 0.0)
+			meta:set_float("progressive_damage_level", 1.0)
 		end
 
 		if progressive_updates["armor"] ~= nil then
@@ -80,4 +80,5 @@ minetest.register_on_craft(
 
 local path = minetest.get_modpath(minetest.get_current_modname()) .. "/"
 
+dofile(path .. "updates.lua")
 dofile(path .. "anvil.lua")
