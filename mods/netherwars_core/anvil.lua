@@ -207,6 +207,9 @@ minetest.register_node("netherwars_core:nether_anvil", {
 
 				update_description(item)
 
+				wielded:set_count(wielded:get_count() - 1)
+				puncher:set_wielded_item(wielded)
+
 				minetest.chat_send_player(player_name, 
 					string.format("Upgrade was successful! New damage: %.2f (+%.2f)",
 						upgraded_damage, damage_upgrade
