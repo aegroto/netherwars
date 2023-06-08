@@ -193,30 +193,43 @@ minetest.register_node("netherwars_core:nether_anvil", {
 
 		if leveling_def ~= nil then
 			local stats = item:get_definition().progressive_updates
-			if leveling_def["damage"] ~= nil and meta:contains("progressive_damage_level") then
-				local current_damage = meta:get_float("progressive_damage_level")
-				local update_factor = meta:get_float("progressive_update_factor")
+			if meta:contains("progressive_damage_level") then
+				if leveling_def["damage"] ~= nil  then
+					local current_damage = meta:get_float("progressive_damage_level")
+					local update_factor = meta:get_float("progressive_update_factor")
 
-				local damage_upgrade = leveling_def["damage"] * update_factor
-				local upgraded_damage = current_damage + damage_upgrade
+					local damage_upgrade = leveling_def.damage * update_factor
 
-				meta:set_float("progressive_damage_level", upgraded_damage)
+					local wielded_meta = wielded:get_meta()
+					if wielded_meta:contains("progressive_damage_level") then
+						local wd = wielded_meta:get_float("progressive_damage_level")
+						local wuf = wielded_meta:get_float("progressive_update_factor")
 
-				local new_update_factor = update_factor * (1.0 - stats.upgrade_decay)
-				meta:set_float("progressive_update_factor", new_update_factor)
+						local mt = leveling_def.min_transfer
 
-				update_description(item)
+						local transferred_damage = wd * (mt + (1.0 - mt) * wuf)
+						damage_upgrade = damage_upgrade + transferred_damage
+					end
 
-				wielded:set_count(wielded:get_count() - 1)
-				puncher:set_wielded_item(wielded)
+					local upgraded_damage = current_damage + damage_upgrade
 
-				minetest.chat_send_player(player_name, 
-					string.format("Upgrade was successful! New damage: %.2f (+%.2f)",
-						upgraded_damage, damage_upgrade
+					meta:set_float("progressive_damage_level", upgraded_damage)
+
+					local new_update_factor = update_factor * (1.0 - stats.upgrade_decay)
+					meta:set_float("progressive_update_factor", new_update_factor)
+
+					update_description(item)
+
+					wielded:set_count(wielded:get_count() - 1)
+					puncher:set_wielded_item(wielded)
+
+					minetest.chat_send_player(player_name, 
+						string.format("Upgrade was successful! New damage: %.2f (+%.2f)",
+							upgraded_damage, damage_upgrade
+						)
 					)
-				)
+				end
 			end
-
 			inventory:set_stack("input", 1, item)
 		end
 	end,
