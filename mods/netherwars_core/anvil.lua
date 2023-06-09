@@ -158,6 +158,7 @@ minetest.register_node("netherwars_core:nether_anvil", {
 
 		if leveling_def ~= nil then
 			try_update(item, puncher, "progressive_damage_level", "damage")
+			try_update(item, puncher, "progressive_armor_level", "armor")
 			inventory:set_stack("input", 1, item)
 		end
 	end,
