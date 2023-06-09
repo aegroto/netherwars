@@ -58,6 +58,57 @@ local remove_item = function(pos, node)
 	end
 end
 
+local function try_update(
+	item,
+	puncher,
+	progressive_var, 
+	var_name
+)
+	local meta = item:get_meta()
+	local wielded = puncher:get_wielded_item()
+	local player_name = puncher:get_player_name()
+	local leveling_def = netherwars.leveling_items[wielded:get_name()]
+	local stats = item:get_definition().progressive_updates
+
+	if meta:contains(progressive_var) then
+		if leveling_def[var_name] ~= nil  then
+			local current_level = meta:get_float(progressive_var)
+			local update_factor = meta:get_float("progressive_update_factor")
+
+			local level_upgrade = leveling_def[var_name] * update_factor
+
+			local wielded_meta = wielded:get_meta()
+			if wielded_meta:contains(progressive_var) then
+				local wd = wielded_meta:get_float(progressive_var)
+				local wuf = wielded_meta:get_float("progressive_update_factor")
+
+				local mt = leveling_def.min_transfer
+
+				local transferred_level = wd * (mt + (1.0 - mt) * wuf)
+				level_upgrade = level_upgrade + transferred_level
+			end
+
+			local upgraded_level = current_level + level_upgrade
+
+			meta:set_float(progressive_var, upgraded_level)
+
+			local new_update_factor = update_factor * (1.0 - stats.upgrade_decay)
+			meta:set_float("progressive_update_factor", new_update_factor)
+
+			update_description(item)
+
+			wielded:set_count(wielded:get_count() - 1)
+			puncher:set_wielded_item(wielded)
+
+			minetest.chat_send_player(player_name, 
+				string.format("Upgrade was successful! New level: %.2f (+%.2f)",
+					upgraded_level, level_upgrade
+				)
+			)
+		end
+	end
+end
+
 
 
 minetest.register_node("netherwars_core:nether_anvil", {
@@ -87,6 +138,29 @@ minetest.register_node("netherwars_core:nether_anvil", {
 			{-0.35, -0.1, -0.2, 0.35, 0.1, 0.2},
 		}
 	},
+
+	on_punch = function(pos, node, puncher)
+		if not pos or not node or not puncher then
+			return
+		end
+
+		local inventory = minetest.get_meta(pos):get_inventory()
+		local item = inventory:get_stack("input", 1)
+
+		if item == nil then
+			return
+		end
+
+		local meta = item:get_meta()
+		local wielded = puncher:get_wielded_item()
+		local player_name = puncher:get_player_name()
+		local leveling_def = netherwars.leveling_items[wielded:get_name()]
+
+		if leveling_def ~= nil then
+			try_update(item, puncher, "progressive_damage_level", "damage")
+			inventory:set_stack("input", 1, item)
+		end
+	end,
 
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -174,65 +248,6 @@ minetest.register_node("netherwars_core:nether_anvil", {
 		return itemstack
 	end,
 
-	on_punch = function(pos, node, puncher)
-		if not pos or not node or not puncher then
-			return
-		end
-
-		local inventory = minetest.get_meta(pos):get_inventory()
-		local item = inventory:get_stack("input", 1)
-
-		if item == nil then
-			return
-		end
-
-		local meta = item:get_meta()
-		local wielded = puncher:get_wielded_item()
-		local player_name = puncher:get_player_name()
-		local leveling_def = netherwars.leveling_items[wielded:get_name()]
-
-		if leveling_def ~= nil then
-			local stats = item:get_definition().progressive_updates
-			if meta:contains("progressive_damage_level") then
-				if leveling_def["damage"] ~= nil  then
-					local current_damage = meta:get_float("progressive_damage_level")
-					local update_factor = meta:get_float("progressive_update_factor")
-
-					local damage_upgrade = leveling_def.damage * update_factor
-
-					local wielded_meta = wielded:get_meta()
-					if wielded_meta:contains("progressive_damage_level") then
-						local wd = wielded_meta:get_float("progressive_damage_level")
-						local wuf = wielded_meta:get_float("progressive_update_factor")
-
-						local mt = leveling_def.min_transfer
-
-						local transferred_damage = wd * (mt + (1.0 - mt) * wuf)
-						damage_upgrade = damage_upgrade + transferred_damage
-					end
-
-					local upgraded_damage = current_damage + damage_upgrade
-
-					meta:set_float("progressive_damage_level", upgraded_damage)
-
-					local new_update_factor = update_factor * (1.0 - stats.upgrade_decay)
-					meta:set_float("progressive_update_factor", new_update_factor)
-
-					update_description(item)
-
-					wielded:set_count(wielded:get_count() - 1)
-					puncher:set_wielded_item(wielded)
-
-					minetest.chat_send_player(player_name, 
-						string.format("Upgrade was successful! New damage: %.2f (+%.2f)",
-							upgraded_damage, damage_upgrade
-						)
-					)
-				end
-			end
-			inventory:set_stack("input", 1, item)
-		end
-	end,
 
 	is_ground_content = false,
 })
