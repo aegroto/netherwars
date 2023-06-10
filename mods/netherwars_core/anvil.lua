@@ -109,8 +109,6 @@ local function try_update(
 	end
 end
 
-
-
 minetest.register_node("netherwars_core:nether_anvil", {
 	drawtype = "nodebox",
 	description = "Nether Anvil",
@@ -253,7 +251,7 @@ minetest.register_node("netherwars_core:nether_anvil", {
 	is_ground_content = false,
 })
 
-local m = "netherwars_core:netherium_ingot"
+local m = "nether:nether_ingot"
 minetest.register_craft({
 	output = "netherwars_core:nether_anvil",
 	recipe = {
