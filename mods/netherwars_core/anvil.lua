@@ -253,3 +253,12 @@ minetest.register_node("netherwars_core:nether_anvil", {
 	is_ground_content = false,
 })
 
+local m = "netherwars_core:netherium_ingot"
+minetest.register_craft({
+	output = "netherwars_core:nether_anvil",
+	recipe = {
+		{m, m, m},
+		{"", m, ""},
+		{m, m, m}
+	},
+})
