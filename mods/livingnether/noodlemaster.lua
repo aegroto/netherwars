@@ -76,10 +76,10 @@ view_range = 20,
 if not mobs.custom_spawn_livingnether then
 mobs:spawn({
 	name = "livingnether:noodlemaster",
-	nodes = {"nether:rack_deep"},
+	nodes = {"nether:rack_deep", "nether:rack"},
 	min_light = 0,
 	interval = 500,
-	chance = 8000, -- 15000
+	chance = 1000, -- 15000
 	min_height = -18000,
 	max_height = -3000,
 })

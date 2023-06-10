@@ -64,11 +64,11 @@ mobs:register_mob("livingnether:sokaarcher", {
 if not mobs.custom_spawn_livingnether then
 mobs:spawn({
 	name = "livingnether:sokaarcher",
-	nodes = {"nether:rack_deep"},
+	nodes = {"nether:rack_deep", "nether:rack"},
 	min_light = 0,
 	interval = 60,
-	active_object_count = 3,
-	chance = 8000, -- 15000
+	active_object_count = 30,
+	chance = 100, -- 15000
 	min_height = -18000,
 	max_height = -3000,
 })
