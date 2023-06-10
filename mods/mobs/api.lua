@@ -2836,8 +2836,6 @@ function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
 	local tmp
 
 	-- add progressive damage
-	local progressive_damage = weapon:get_meta():get_int("progressive_damage_level") or 0
-	damage = damage + progressive_damage
 
 	-- quick error check incase it ends up 0 (serialize.h check test)
 	if tflp == 0 then
@@ -2857,6 +2855,18 @@ function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
 			damage = damage + (tool_capabilities.damage_groups[group] or 0)
 					* tmp * ((armor[group] or 0) / 100.0)
 		end
+
+		-- add progressive damage
+		tmp = tflp / (tool_capabilities.full_punch_interval or 1.4)
+		if tmp < 0 then
+			tmp = 0.0
+		elseif tmp > 1 then
+			tmp = 1.0
+		end
+		local progressive_damage = weapon:get_meta():get_int("progressive_damage_level") or 0
+		
+		damage = damage + progressive_damage 
+				* tmp * ((armor["fleshy"] or 0) / 100.0)
 	end
 
 	-- check for tool immunity or special damage

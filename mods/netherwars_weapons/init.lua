@@ -2,7 +2,7 @@ minetest.register_tool("netherwars_weapons:sword_netherwarrior", {
 	description = "Nether Warrior Sword",
 	inventory_image = "netherwars_warrior_sword.png",
 	tool_capabilities = {
-		full_punch_interval = 0.7,
+		full_punch_interval = 1.2,
 		max_drop_level=1,
 		groupcaps={
 			snappy={times={[1]=1.5, [2]=0.6, [3]=0.2}, uses=45, maxlevel=3},
