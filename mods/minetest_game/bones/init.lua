@@ -201,6 +201,10 @@ minetest.register_on_dieplayer(function(player)
 	local pos = vector.round(player:get_pos())
 	local pos_string = minetest.pos_to_string(pos)
 
+	if pos.y > -1000 then
+		return
+	end
+
 	-- return if keep inventory set or in creative mode
 	if bones_mode == "keep" or minetest.is_creative_enabled(player_name) then
 		minetest.log("action", player_name .. " dies at " .. pos_string ..
