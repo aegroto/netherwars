@@ -6,7 +6,7 @@ mobs:register_mob("livingnether:sokameele", {
         attack_type = "dogfight",
 	attack_animals = true,
 	reach = 2,
-        damage = 13,
+    damage = 35,
 	hp_min = 80,
 	hp_max = 125,
 	armor = 100,

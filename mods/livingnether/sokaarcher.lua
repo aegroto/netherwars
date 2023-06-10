@@ -5,7 +5,7 @@ mobs:register_mob("livingnether:sokaarcher", {
 	type = "monster",
 	-- aggressive, shoots shuriken
 	passive = false,
-	damage = 13,
+	damage = 30,
 	attack_type = "shoot",
 	shoot_interval = 2,
 	arrow = "livingnether:sarrow",
