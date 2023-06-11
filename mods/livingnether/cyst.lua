@@ -70,8 +70,8 @@ mobs:spawn({
 	nodes = {"nether:sand", "nether:basalt"},
 	min_light = 0,
 	interval = 60,
-	active_object_count = 25,
-	chance = 100, -- 15000
+	active_object_count = 15,
+	chance = 1000, -- 15000
 	min_height = -18000,
 	max_height = -3000,
 })
