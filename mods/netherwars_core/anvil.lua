@@ -101,8 +101,8 @@ local function try_update(
 			puncher:set_wielded_item(wielded)
 
 			minetest.chat_send_player(player_name, 
-				string.format("Upgrade was successful! New level: %.2f (+%.2f)",
-					upgraded_level, level_upgrade
+				string.format("Upgrade for '%s' was successful! New level: %.2f (+%.2f)",
+					var_name, upgraded_level, level_upgrade
 				)
 			)
 		end
@@ -157,6 +157,7 @@ minetest.register_node("netherwars_core:nether_anvil", {
 		if leveling_def ~= nil then
 			try_update(item, puncher, "progressive_damage_level", "damage")
 			try_update(item, puncher, "progressive_armor_level", "armor")
+			try_update(item, puncher, "progressive_heal_level", "heal")
 			inventory:set_stack("input", 1, item)
 		end
 	end,

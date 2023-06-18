@@ -44,10 +44,14 @@ function update_description(itemstack)
 			string.format("\nDamage level: %.2f", meta:get_float("progressive_damage_level"))
 	end
 
-	
 	if meta:contains("progressive_armor_level") then
 		description = description ..
 			string.format("\nArmor level: %.2f", meta:get_float("progressive_armor_level"))
+	end
+
+	if meta:contains("progressive_heal_level") then
+		description = description ..
+			string.format("\nHeal level: %.2f", meta:get_float("progressive_heal_level"))
 	end
 
 	if meta:contains("progressive_update_factor") then
@@ -74,6 +78,10 @@ minetest.register_on_craft(
 
 		if progressive_updates.armor ~= nil then
 			meta:set_float("progressive_armor_level", progressive_updates.armor)
+		end
+
+		if progressive_updates.heal ~= nil then
+			meta:set_float("progressive_heal_level", progressive_updates.heal)
 		end
 
 		meta:set_float("progressive_update_factor", 1.0)

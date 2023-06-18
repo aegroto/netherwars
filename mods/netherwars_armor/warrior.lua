@@ -5,6 +5,7 @@ armor:register_armor("netherwars_armor:helmet_netherwarrior", {
 	armor_groups = {fleshy=5},
 	progressive_updates = { 
 		armor = 1.0,
+		heal = 1.0,
 		upgrade_decay = 0.01
 	},
 	damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
@@ -17,6 +18,7 @@ armor:register_armor("netherwars_armor:chestplate_netherwarrior", {
 	armor_groups = {fleshy=11},
 	progressive_updates = { 
 		armor = 1.0,
+		heal = 1.0,
 		upgrade_decay = 0.005
 	},
 	damage_groups = {cracky=2, snappy=1, level=3},
@@ -29,6 +31,7 @@ armor:register_armor("netherwars_armor:leggings_netherwarrior", {
 	armor_groups = {fleshy=11},
 	progressive_updates = { 
 		armor = 1.0,
+		heal = 1.0,
 		upgrade_decay = 0.0075
 	},
 	damage_groups = {cracky=2, snappy=1, level=3},
@@ -41,6 +44,7 @@ armor:register_armor("netherwars_armor:boots_netherwarrior", {
 	armor_groups = {fleshy=6},
 	progressive_updates = { 
 		armor = 1.0,
+		heal = 1.0,
 		upgrade_decay = 0.01
 	},
 	damage_groups = {cracky=2, snappy=1, level=3},
@@ -55,6 +59,7 @@ armor:register_armor("netherwars_armor:shield_netherwarrior", {
 	reciprocate_damage = true,
 	progressive_updates = { 
 		armor = 1.0,
+		heal = 1.0,
 		upgrade_decay = 0.01
 	},
 	on_damage = function(player, index, stack)

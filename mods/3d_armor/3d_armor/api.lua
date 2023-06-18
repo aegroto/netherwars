@@ -445,6 +445,11 @@ armor.set_player_armor = function(self, player)
 				local value = def.groups["armor_"..attr] or 0
 				attributes[attr] = attributes[attr] + value
 			end
+
+			if stack:get_meta():contains("progressive_heal_level") then
+				local progressive_level = stack:get_meta():get_float("progressive_heal_level")
+				attributes["heal"] = attributes["heal"] + math.floor(progressive_level)
+			end
 		end
 	end
 	-- The following code compares player worn armor items against requirements
