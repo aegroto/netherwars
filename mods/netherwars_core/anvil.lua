@@ -155,14 +155,14 @@ minetest.register_node("netherwars_core:nether_anvil", {
 		local leveling_def = netherwars.leveling_items[wielded:get_name()]
 
 		if leveling_def ~= nil then
-			local updated = try_update(item, puncher, "progressive_damage_level", "damage")
-			updated = updated or try_update(item, puncher, "progressive_armor_level", "armor")
-			updated = updated or try_update(item, puncher, "progressive_heal_level", "heal")
-			inventory:set_stack("input", 1, item)
+			local damage_updated = try_update(item, puncher, "progressive_damage_level", "damage")
+			local armor_updated = try_update(item, puncher, "progressive_armor_level", "armor")
+			local heal_updated = updated or try_update(item, puncher, "progressive_heal_level", "heal")
 
-			if updated then
+			if damage_updated or armor_updated or heal_updated then
 				wielded:set_count(wielded:get_count() - 1)
 				puncher:set_wielded_item(wielded)
+				inventory:set_stack("input", 1, item)
 			end
 		end
 	end,
