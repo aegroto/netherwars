@@ -62,12 +62,6 @@ armor:register_armor("netherwars_armor:shield_netherwarrior", {
 		heal = 1.0,
 		upgrade_decay = 0.01
 	},
-	on_damage = function(player, index, stack)
-		play_sound_effect(player, "default_glass_footstep")
-	end,
-	on_destroy = function(player, index, stack)
-		play_sound_effect(player, "default_break_glass")
-	end,
 })
 
 local s = "netherwarrior"
