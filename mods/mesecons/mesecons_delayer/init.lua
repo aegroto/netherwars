@@ -1,7 +1,9 @@
 -- Function that get the input/output rules of the delayer
 local delayer_get_output_rules = function(node)
 	local rules = {{x = 0, y = 0, z = 1}}
-	for i = 0, node.param2 do
+	local dir = node.param2
+	if dir == nil then dir = 1 end
+	for i = 0, dir do
 		rules = mesecon.rotate_rules_left(rules)
 	end
 	return rules
@@ -9,7 +11,9 @@ end
 
 local delayer_get_input_rules = function(node)
 	local rules = {{x = 0, y = 0, z = -1}}
-	for i = 0, node.param2 do
+	local dir = node.param2
+	if dir == nil then dir = 1 end
+	for i = 0, dir do
 		rules = mesecon.rotate_rules_left(rules)
 	end
 	return rules

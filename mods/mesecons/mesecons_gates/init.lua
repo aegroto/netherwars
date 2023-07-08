@@ -12,7 +12,9 @@ local nodebox = {
 }
 
 local function gate_rotate_rules(node, rules)
-	for rotations = 0, node.param2 - 1 do
+	local dir = node.param2
+	if dir == nil then dir = 1 end
+	for rotations = 0, dir - 1 do
 		rules = mesecon.rotate_rules_left(rules)
 	end
 	return rules
