@@ -73,12 +73,18 @@ local function rules_from_dir(ruleset, dir)
 end
 
 mesecon.rules.wallmounted_get = function(node)
-	local dir = minetest.wallmounted_to_dir(node.param2)
+	local facedir = node.param2
+	if facedir == nil then facedir = 1 end
+
+	local dir = minetest.wallmounted_to_dir(facedir)
 	return rules_from_dir(rules_wallmounted, dir)
 end
 
 mesecon.rules.buttonlike_get = function(node)
-	local dir = minetest.facedir_to_dir(node.param2)
+	local facedir = node.param2
+	if facedir == nil then facedir = 1 end
+
+	local dir = minetest.facedir_to_dir(facedir)
 	return rules_from_dir(rules_buttonlike, dir)
 end
 
