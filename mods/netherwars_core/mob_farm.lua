@@ -1,4 +1,4 @@
-netherwars.mob_spawn_frequency = 2
+netherwars.mob_spawn_frequency = 10
 netherwars.spawnable_mobs = {
     "livingnether:razorback",
     "livingnether:lavawalker",
