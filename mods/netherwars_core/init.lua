@@ -93,3 +93,4 @@ local path = minetest.get_modpath(minetest.get_current_modname()) .. "/"
 
 dofile(path .. "updates.lua")
 dofile(path .. "anvil.lua")
+dofile(path .. "mob_farm.lua")
