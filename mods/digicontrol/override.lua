@@ -54,7 +54,7 @@ function digilines.transmit(pos, channel, msg, checked, origin)
 			end
 			if rules then
 				for _, rule in ipairs(rules) do
-					local nextPos = digilines.addPosRule(curPos, rule)
+					local nextPos = vector.add(curPos, rule)
 					if digilines.rules_link(curPos, nextPos) then
 						checkedID = minetest.hash_node_position(nextPos)
 						if not checked[checkedID] then
